@@ -1,0 +1,16 @@
+.env
+
+
+venv/
+__pycache__/
+*.pyc
+
+
+medical_index/
+
+
+.streamlit/
+
+
+.DS_Store
+Thumbs.db
