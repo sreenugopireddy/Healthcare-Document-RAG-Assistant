@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🩺 Healthcare Document RAG Assistant
 
 A domain-grounded Healthcare Question Answering assistant built using a Retrieval-Augmented Generation (RAG) pipeline.  
@@ -22,3 +23,7 @@ The result is a grounded, auditable healthcare knowledge assistant.
 
 ## 🧠 System Architecture
 
+=======
+# Healthcare-Document-RAG-Assistant
+A domain-grounded Healthcare Question Answering assistant built using a Retrieval-Augmented Generation (RAG) pipeline.   The system answers medical questions strictly from approved healthcare documents and provides source citations for every answer.
+>>>>>>> d463213d359290981190e3207acd5ae95d87e544
