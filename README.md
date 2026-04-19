@@ -296,4 +296,4 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 **Sreenivasa Reddy Gopireddy**
 Data Science Student · RAG Systems · LLM Applications
-[LinkedIn](https://linkedin.com/in/sreenugopireddy) · [GitHub](https://github.com/sreenugopireddy) · [Portfolio](https://sreenugopireddy.github.io)
+[LinkedIn](https://www.linkedin.com/in/sreenu-gopireddy/) · [GitHub](https://github.com/sreenugopireddy) · [Portfolio](https://sreenu-gopireddy.vercel.app/)
