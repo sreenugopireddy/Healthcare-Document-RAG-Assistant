@@ -200,6 +200,26 @@ cd Healthcare-Document-RAG-Assistant
 ```
 
 ---
+## RAG Evaluation Framework
+
+Evaluation layer benchmarking retrieval and generation quality using RAGAS.
+
+### Baseline Results (chunk_size=800, top_k=3)
+| Metric | Score |
+|--------|-------|
+| Faithfulness | 1.000 |
+| Answer Relevancy | 0.736 |
+| Context Recall | 0.625 |
+| Avg Latency | 0.52s |
+
+### Run Evaluation
+```bash
+pip install -r requirements_eval.txt
+python build_index.py
+python run_eval.py          # Phase 1 — baseline eval
+python run_benchmark.py     # Phase 2 — 6 configs + MLflow (~8 mins)
+streamlit run eval_dashboard.py  # Phase 3 — leaderboard dashboard
+```
 
 ## 2️⃣ Create Virtual Environment
 
