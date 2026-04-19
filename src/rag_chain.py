@@ -22,8 +22,13 @@ def build_rag(retriever):
     )
 
     def rag_answer(question: str):
-
         docs = retriever.invoke(question)
+
+        if not docs:
+            return {
+                "answer": "Not found in medical knowledge base.",
+                "sources": []
+            }
 
         context = "\n\n".join(d.page_content for d in docs)
 

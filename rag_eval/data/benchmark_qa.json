@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is antibiotic resistance?",
+    "ground_truth": "Antibiotic resistance is the ability of bacteria to protect themselves against the effects of an antibiotic. It occurs when bacteria survive and grow despite antibiotic treatment, often due to overuse or inappropriate use of antibiotics."
+  },
+  {
+    "question": "How does antibiotic resistance develop and spread?",
+    "ground_truth": "Antibiotic resistance develops when antibiotics kill susceptible bacteria but resistant ones survive and multiply. It spreads through poor hygiene and sanitation, contaminated food and water, and travel. Overuse in human medicine and agriculture accelerates this process."
+  },
+  {
+    "question": "Why are antibiotics ineffective against viral infections like the flu?",
+    "ground_truth": "Antibiotics only work against bacterial infections and have no effect on viruses. Viral infections such as the common cold and influenza must be managed with antiviral medications or supportive care, not antibiotics."
+  },
+  {
+    "question": "What vaccines are recommended for adults to prevent pneumonia?",
+    "ground_truth": "Vaccines that help prevent pneumonia include pneumococcal vaccine, Haemophilus influenzae type b (Hib), pertussis, varicella, measles, and influenza vaccines."
+  },
+  {
+    "question": "What are the symptoms of pneumonia?",
+    "ground_truth": "Most people with pneumonia experience cough, fever, and difficulty breathing. Signs and symptoms can vary depending on age and overall health."
+  },
+  {
+    "question": "How is bacterial pneumonia treated differently from viral pneumonia?",
+    "ground_truth": "Bacterial pneumonia is treated with antibiotics. Viral pneumonia without evidence of bacterial infection is not treated with antibiotics but with antiviral medications such as influenza antivirals that specifically fight influenza viruses."
+  },
+  {
+    "question": "What vaccines are included in the CDC 2025 adult immunization schedule?",
+    "ground_truth": "The 2025 CDC adult immunization schedule includes COVID-19, influenza, RSV, Tdap/Td, MMR, varicella, zoster, HPV, pneumococcal, hepatitis A, hepatitis B, meningococcal, Hib, monkeypox, and inactivated poliovirus vaccines."
+  },
+  {
+    "question": "When is the Tdap vaccine recommended during pregnancy?",
+    "ground_truth": "One dose of Tdap is recommended during each pregnancy, preferably in the early part of gestational weeks 27 through 36, to protect the newborn against pertussis."
+  },
+  {
+    "question": "What are the consequences of antibiotic resistance for global health?",
+    "ground_truth": "Antibiotic resistance leads to treatment failures, threatens modern medical procedures, imposes major economic burdens on society, and causes many deaths worldwide. Resistant bacteria cause over 23,000 deaths annually in the USA and 25,000 in the European Union."
+  },
+  {
+    "question": "What vaccines does India's National Immunization Schedule recommend for infants at birth?",
+    "ground_truth": "At birth, India's National Immunization Schedule recommends BCG vaccine, Hepatitis B birth dose, and OPV-0, all administered as early as possible within the first 24 to 15 days of life."
+  }
+]
