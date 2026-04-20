@@ -265,7 +265,7 @@ This single constraint is responsible for the 1.0 faithfulness score. The model 
 This project is accompanied by a technical article on RAG architecture for healthcare QA systems, published on Ready Tensor:
 
 **Healthcare Document RAG Assistant: A Modular Retrieval-Augmented Generation System**
-→ [Read on Ready Tensor](https://readytensor.ai)
+→ [Read on Ready Tensor](https://app.readytensor.ai/publications/healthcare-document-rag-assitant-0EKLQ6QTqtCS)
 
 ---
 
