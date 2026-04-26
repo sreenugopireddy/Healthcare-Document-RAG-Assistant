@@ -10,6 +10,15 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
 ---
+## The Problem
+
+Medical professionals waste hours manually searching across hundreds of PDFs for answers — with no guarantee the information is accurate or traceable. Generic LLMs hallucinate medical facts, making them unsafe for clinical contexts.
+
+## The Solution
+
+A production-grade RAG pipeline that retrieves answers **strictly** from approved healthcare documents — with source citations, hallucination guardrails (faithfulness = 1.000), and a full evaluation framework to prove it works.
+
+---
 
 ## What makes this different
 
@@ -24,6 +33,10 @@ The system includes a complete evaluation framework that scores every RAG config
 | Single configuration | Benchmark 6 configs across chunk size and top-k |
 | No experiment tracking | MLflow logs every run for reproducible comparison |
 | No visualisation | Streamlit leaderboard dashboard with Plotly charts |
+
+---
+
+The system includes a complete evaluation framework that scores every RAG configuration on faithfulness, answer relevancy, and context recall using RAGAS — then logs all experiments to MLflow and visualises the leaderboard in a Streamlit dashboard.
 
 ---
 
