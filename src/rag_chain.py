@@ -1,5 +1,6 @@
 import os
 import re
+import requests
 from langchain_groq import ChatGroq
 
 PROMPT_TEMPLATE = """
@@ -16,12 +17,41 @@ Question:
 {question}
 """
 
-# Override via env var / Streamlit secret without touching code
-MODEL = os.getenv("GROQ_MODEL", "qwen/qwen3.6-27b")
+# Preferred non-OpenAI models, in order. Add IDs here if needed.
+PREFERRED = ["qwen/qwen3.6-27b", "qwen/qwen3.8-27b", "qwen/qwen3-32b"]
+SKIP_WORDS = ("whisper", "tts", "guard", "safeguard", "compound", "embed", "openai/")
+
+
+def _available_models():
+    key = os.getenv("GROQ_API_KEY")
+    r = requests.get(
+        "https://api.groq.com/openai/v1/models",
+        headers={"Authorization": f"Bearer {key}"},
+        timeout=15,
+    )
+    r.raise_for_status()
+    return [m["id"] for m in r.json()["data"]]
+
+
+def pick_model():
+    forced = os.getenv("GROQ_MODEL")
+    ids = _available_models()
+    if forced and forced in ids:
+        return forced
+    for m in PREFERRED:
+        if m in ids:
+            return m
+    # fallback: any chat model that isn't OpenAI/audio/guard
+    for m in ids:
+        if not any(w in m.lower() for w in SKIP_WORDS):
+            return m
+    raise RuntimeError(f"No usable Groq model found. Available: {ids}")
+
+
+MODEL = pick_model()
 
 
 def _clean(text: str) -> str:
-    # Remove reasoning blocks some Qwen models emit
     return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
 
 
