@@ -17,7 +17,6 @@ Question:
 {question}
 """
 
-# Preferred non-OpenAI models, in order. Add IDs here if needed.
 PREFERRED = ["qwen/qwen3.6-27b", "qwen/qwen3.8-27b", "qwen/qwen3-32b"]
 SKIP_WORDS = ("whisper", "tts", "guard", "safeguard", "compound", "embed", "openai/")
 
@@ -41,7 +40,6 @@ def pick_model():
     for m in PREFERRED:
         if m in ids:
             return m
-    # fallback: any chat model that isn't OpenAI/audio/guard
     for m in ids:
         if not any(w in m.lower() for w in SKIP_WORDS):
             return m
@@ -60,6 +58,8 @@ def build_rag(retriever):
     llm = ChatGroq(
         model_name=MODEL,
         temperature=0.1,
+        max_tokens=400,            # stays under the 1000 output-tokens/min limit
+        reasoning_effort="none",   # no thinking tokens, saves output budget
     )
 
     def rag_answer(question: str):
@@ -78,7 +78,15 @@ def build_rag(retriever):
             question=question
         )
 
-        response = llm.invoke(prompt)
+        try:
+            response = llm.invoke(prompt)
+        except Exception as e:
+            if "429" in str(e) or "rate_limit" in str(e).lower():
+                return {
+                    "answer": "Rate limit reached on the free Groq tier. Please wait about a minute and try again.",
+                    "sources": []
+                }
+            raise
 
         return {
             "answer": _clean(response.content),
