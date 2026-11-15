@@ -1,3 +1,5 @@
+import os
+import re
 from langchain_groq import ChatGroq
 
 PROMPT_TEMPLATE = """
@@ -14,11 +16,20 @@ Question:
 {question}
 """
 
+# Override via env var / Streamlit secret without touching code
+MODEL = os.getenv("GROQ_MODEL", "qwen/qwen3.6-27b")
+
+
+def _clean(text: str) -> str:
+    # Remove reasoning blocks some Qwen models emit
+    return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
+
+
 def build_rag(retriever):
 
     llm = ChatGroq(
-        model_name="llama-3.1-8b-instant",
-        temperature=0
+        model_name=MODEL,
+        temperature=0.1,
     )
 
     def rag_answer(question: str):
@@ -40,7 +51,7 @@ def build_rag(retriever):
         response = llm.invoke(prompt)
 
         return {
-            "answer": response.content,
+            "answer": _clean(response.content),
             "sources": [d.metadata.get("source_file") for d in docs]
         }
 
