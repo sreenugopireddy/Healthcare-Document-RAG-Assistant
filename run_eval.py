@@ -16,7 +16,7 @@ if not os.getenv("GROQ_API_KEY"):
     sys.exit("❌  GROQ_API_KEY not set in .env")
 
 from src.vectorstore import load_or_create_index
-from src.rag_chain import build_rag
+from src.rag_chain import build_rag, MODEL
 
 sys.path.insert(0, str(Path(__file__).parent))
 from rag_eval import run_evaluation, save_results
@@ -28,6 +28,7 @@ def main():
     print("=" * 55)
     print("  Healthcare RAG Evaluation — Phase 1")
     print("=" * 55)
+    print(f"  Generation model: {MODEL}")
 
     print("\n── Loading vector store ──")
     db        = load_or_create_index()
@@ -41,7 +42,7 @@ def main():
         benchmark_path = BENCHMARK_PATH,
     )
 
-    save_results(results, config_name="baseline_k3_llama3")
+    save_results(results, config_name="baseline_k3_qwen")
 
     print("\n── Per-Question Scores ──────────────────────────────────────────")
     print(f"{'#':<3} {'Question':<45} {'Faith':>6} {'Relev':>6} {'Recall':>7} {'ms':>6}")
